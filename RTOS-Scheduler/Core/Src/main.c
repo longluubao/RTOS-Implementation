@@ -67,9 +67,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     if (GPIO_Pin == BUTTON_Pin)
     {
       if (HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin) == GPIO_PIN_RESET) {
-            HAL_UART_Transmit(&huart2, (uint8_t *)"Button is pressed\r\n", 19, 1000);
+            HAL_UART_Transmit(&huart2, (uint8_t *)"Button is pressed
+", 19, 1000);
 
-            SCH_Add_Task(TASK_5, 2000, 3000);
+            SCH_Add_Task(TASK_5, 3000, 4000); // Changed from 2000, 3000
         }
     }
 }
@@ -109,16 +110,21 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   SCH_Init();
   unsigned char task_index=0;
-  task_index = SCH_Add_Task(TASK_0, 500, 500);
-   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
-  task_index = SCH_Add_Task(TASK_1, 1000, 1000);
-   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
-   task_index = SCH_Add_Task(TASK_2, 1500, 1500);
-   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
-   task_index = SCH_Add_Task(TASK_3, 2000, 2000);
-   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
-   task_index = SCH_Add_Task(TASK_4, 2500, 2500);
-   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
+  task_index = SCH_Add_Task(TASK_0, 1500, 1500); // Changed from 500, 500
+   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added
+", task_index), 1000);
+  task_index = SCH_Add_Task(TASK_1, 2000, 2000); // Changed from 1000, 1000
+   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added
+", task_index), 1000);
+   task_index = SCH_Add_Task(TASK_2, 2500, 2500); // Changed from 1500, 1500
+   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added
+", task_index), 1000);
+   task_index = SCH_Add_Task(TASK_3, 3000, 3000); // Changed from 2000, 2000
+   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added
+", task_index), 1000);
+   task_index = SCH_Add_Task(TASK_4, 3500, 3500); // Changed from 2500, 2500
+   HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added
+", task_index), 1000);
   /* USER CODE END 2 */
    setTimer0(500);
   /* Infinite loop */
@@ -328,7 +334,8 @@ void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+     ex: printf("Wrong parameters value: file %s on line %d
+", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
