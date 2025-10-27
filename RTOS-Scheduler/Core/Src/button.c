@@ -38,7 +38,7 @@ void fsm_button() {
 			if (is_button_pressed()) {
 				button_state = BUTTON_PRESSED;
 				 HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Button is pressed\r\n"), 1000);
-				SCH_Add_Task(TASK_5,1000, 2000);
+				SCH_Add_Task(TASK_5,2000, 5000);
 			}
 			break;
 		default:

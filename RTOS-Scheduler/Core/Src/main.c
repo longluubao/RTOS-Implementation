@@ -109,15 +109,15 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   SCH_Init();
   unsigned char task_index=0;
-  task_index = SCH_Add_Task(TASK_0, 500, 500);
+  task_index = SCH_Add_Task(TASK_0, 3500, 3500); // Original: 500, 500 + 3000
    HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
-  task_index = SCH_Add_Task(TASK_1, 1000, 1000);
+  task_index = SCH_Add_Task(TASK_1, 4000, 4000); // Original: 1000, 1000 + 3000
    HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
-   task_index = SCH_Add_Task(TASK_2, 1500, 1500);
+   task_index = SCH_Add_Task(TASK_2, 4500, 4500); // Original: 1500, 1500 + 3000
    HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
-   task_index = SCH_Add_Task(TASK_3, 2000, 2000);
+   task_index = SCH_Add_Task(TASK_3, 5000, 5000); // Original: 2000, 2000 + 3000
    HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
-   task_index = SCH_Add_Task(TASK_4, 2500, 2500);
+   task_index = SCH_Add_Task(TASK_4, 5500, 5500); // Original: 2500, 2500 + 3000
    HAL_UART_Transmit(&huart2, (uint8_t *)data, sprintf(data, "Task %d is added\r\n", task_index), 1000);
   /* USER CODE END 2 */
    setTimer0(500);
