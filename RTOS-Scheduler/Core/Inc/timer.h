@@ -8,7 +8,7 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-#define TIMER_CYCLE		10
+#define TIMER_CYCLE		50
 extern unsigned char timer0_flag;
 
 void setTimer0(int duration);
